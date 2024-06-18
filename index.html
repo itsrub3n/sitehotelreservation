@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+    <script src="code.js"></script>
+    <title>Réservation d'hôtel</title>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Réservation d'hôtel</h1>
+    </div>
+    <div id="hotel-image"></div>
+    <div class="container">
+        <div class="container-left">
+            <form id="reservation-form">
+                <label for="lieu">Lieu de séjour :</label>
+                <select name="lieu" id="lieu">
+                    <option value="Paris">Paris</option>
+                    <option value="Lyon">Lyon</option>
+                    <option value="Marseille">Marseille</option>
+                </select><br><br>
+                <label for="arrivee">Arrivée :</label>
+                <input type="date" id="arrivee" name="arrivee" onchange="validateDates()"><br><br>
+
+                <label for="depart">Départ :</label>
+                <input type="date" id="depart" name="depart" onchange="validateDates()"><br><br>
+
+                <label for="adulte">Adulte :</label>
+                <input type="number" id="adulte" name="adulte" value="0" readonly>
+                <input type="button" value="+" onclick="increase('adulte')">
+                <input type="button" value="-" onclick="decrease('adulte')"><br><br>
+
+                <label for="enfant">Enfant :</label>
+                <input type="number" id="enfant" name="enfant" value="0" readonly>
+                <input type="button" value="+" onclick="increase('enfant')">
+                <input type="button" value="-" onclick="decrease('enfant')"><br><br>
+                <div id="enfant-age-container"></div><br>
+
+                <label for="chambre">Chambre :</label>
+                <input type="number" id="chambre" name="chambre" value="0" readonly>
+                <input type="button" value="+" onclick="increase('chambre')">
+                <input type="button" value="-" onclick="decrease('chambre')"><br><br>
+                
+                <label for="voyage-travail">Voyage pour le travail :</label>
+                <input type="checkbox" id="voyage-travail" name="voyage-travail" required><br><br>
+                <input type="button" value="Rechercher" onclick="updateReservationDetails()">
+                <input type="button" value="Effacer" onclick="resetForm()">
+            </form>
+        </div>
+        <div class="container-right">
+            <h2 id="confirmation-title">Confirmation de réservation</h2>
+            <div id="reservation-details">
+                <p id="adulte-result">Nombre d'adultes :</p>
+                <p id="enfant-result">Nombre d'enfants :</p>
+                <p id="chambre-result">Nombre de chambres :</p>
+                <p id="voyage-travail-result">Voyage pour le travail :</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
